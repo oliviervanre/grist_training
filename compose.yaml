@@ -1,0 +1,13 @@
+services:
+  grist:
+    image: gristlabs/grist
+    ports:
+      - "127.0.0.1:8484:8484"
+    environment:
+      GRIST_DEFAULT_EMAIL: "${GRIST_DEFAULT_EMAIL:?Renseigner GRIST_DEFAULT_EMAIL dans .env}"
+      GRIST_SESSION_SECRET: "${GRIST_SESSION_SECRET:?Renseigner GRIST_SESSION_SECRET dans .env}"
+    volumes:
+      - grist-data:/persist
+
+volumes:
+  grist-data:
